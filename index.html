@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jingxian Liao, postdoctoral researcher in physics-embedded machine learning and adaptive control. Research algorithms, convertible aircraft and embodied intelligence applications, grants and publications.">
+  <meta name="color-scheme" content="light">
+  <title>Jingxian Liao · Scientific Machine Learning and Control</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/site.js" defer></script>
+  <script src="assets/visitor-map.js" defer></script>
+  <link rel="canonical" href="https://jingxianliao.github.io/">
+</head>
+<body>
+  <a class="skip" href="#main" data-zh="跳到正文">Skip to content</a>
+  <header id="top" class="site-header">
+    <div class="shell nav">
+      <a class="wordmark" href="#top"><span class="mark" aria-hidden="true">JL</span><span data-zh="廖静娴">Jingxian Liao</span></a>
+      <nav class="nav-links" aria-label="Sections"><a href="#algorithms" data-zh="算法">Algorithms</a><a href="#publications" data-zh="论文">Publications</a><a href="#projects" data-zh="项目">Projects</a><a href="#patents" data-zh="专利">Patents</a><a href="#experience" data-zh="经历">Experience</a></nav>
+      <div class="language" role="group" aria-label="Language / 语言" hidden>
+        <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" data-lang="zh" aria-pressed="false" lang="zh-CN">中文</button>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section class="shell hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 class="hero-name" id="hero-title" data-zh="廖静娴">Jingxian Liao</h1>
+        <p class="alt-name" lang="zh-CN" data-zh="Jingxian Liao">廖静娴</p>
+        <p class="hero-affiliation" data-zh="博士后、助理研究员 · 电子科技大学（深圳）高等研究院">Postdoctoral Fellow and Assistant Researcher · Shenzhen Institute for Advanced Study, UESTC</p>
+        <div class="hero-recognition">
+          <time datetime="2024" data-zh="2024 年">2024</time>
+          <p data-zh="入选国家海外博士后人才引进项目">Selected for the National Overseas Postdoctoral Talent Program</p>
+        </div>
+        <h2 class="hero-research-title" data-zh="面向物理系统的学习与控制">Learning and control for physical systems</h2>
+        <p class="hero-description" data-zh="我研究将物理模型嵌入学习算法的方法，以及具有明确稳定性条件的自适应控制。我将这些方法用于可转换构型飞行器的过渡段建模与控制，并探索它们在具身智能中的应用。">I develop learning algorithms that embed physical models, and adaptive control methods with explicit stability conditions. I study transition modeling and control for convertible aircraft and explore applications in embodied intelligence.</p>
+        <div class="hero-actions"><a class="button primary" href="#algorithms" data-zh="查看算法">Explore algorithms</a><a class="button secondary" href="assets/Jingxian-Liao-CV.pdf" data-zh="学术简历 PDF">CV PDF</a><a class="text-link" href="https://orcid.org/0000-0002-6148-9685">ORCID</a></div>
+      </div>
+      <div class="method-demo" aria-label="Algorithm overview">
+        <div class="method-tabs" role="tablist" aria-label="Algorithms">
+          <button type="button" role="tab" id="tab-aero" aria-controls="method-aero" aria-selected="true" data-method="aero">AeroKAN</button>
+          <button type="button" role="tab" id="tab-alloc" aria-controls="method-alloc" aria-selected="false" tabindex="-1" data-method="alloc">allocKAN</button>
+        </div>
+        <article class="method-panel" data-method-panel="aero" id="method-aero" role="tabpanel" aria-labelledby="tab-aero">
+      <h2 data-zh="把物理机理写进模型结构">Encode domain knowledge in the model</h2>
+      <ol class="pipeline">
+        <li>
+          <span class="stage-icon"><img src="assets/method-icons/angle-of-attack.png" width="144" height="144" alt=""></span>
+          <div class="stage-copy"><strong data-zh="飞行输入">Flight input</strong><span data-zh="攻角">Angle of attack</span></div>
+        </li>
+        <li>
+          <span class="stage-icon"><img src="assets/method-icons/edge-function.png" width="144" height="144" alt=""></span>
+          <div class="stage-copy"><strong data-zh="AeroEdge 边函数">AeroEdge functions</strong><span data-zh="解析升力先验与可学习残差">Analytical lift prior + trainable residual</span></div>
+        </li>
+        <li>
+          <span class="stage-icon"><img src="assets/method-icons/lift-prediction.png" width="144" height="144" alt=""></span>
+          <div class="stage-copy"><strong data-zh="升力预测">Lift prediction</strong><span data-zh="升力系数">Lift coefficient</span></div>
+        </li>
+      </ol>
+      <p class="method-principle" data-zh="共享过渡参数直接由数据学习。">The shared transition parameter is learned from data.</p>
+      <div class="method-proof">
+        <div class="result"><strong data-zh="平均绝对误差降低 24.8%">24.8% lower MAE</strong><span data-zh="对称翼型 · 57 个先验有效工况，AeroKAN-L2 的平均绝对误差为 0.0246，基线为无先验 KAN。">Symmetric airfoils · AeroKAN-L2 achieves an MAE of 0.0246 against a no-prior KAN baseline across 57 prior-valid configurations.</span></div>
+        <div class="result"><strong data-zh="平均绝对误差降低 20.8%">20.8% lower MAE</strong><span data-zh="有弯度翼型 · 11 种翼型的 23 个工况中，边函数结构编码的组均值 MAE 为 0.0566，损失惩罚编码为 0.0715。">Cambered airfoils · Across 23 configurations from 11 airfoils, mean MAE across variants is 0.0566 with edge encoding and 0.0715 with loss-penalty encoding on the KAN backbone.</span></div>
+      </div>
+    </article><article class="method-panel" data-method-panel="alloc" id="method-alloc" role="tabpanel" aria-labelledby="tab-alloc" hidden>
+      <h2 data-zh="用稳定性分析约束在线学习">Constrain online learning with stability analysis</h2>
+      <ol class="pipeline">
+        <li>
+          <span class="stage-icon"><img src="assets/method-icons/control-demand.png" width="144" height="144" alt=""></span>
+          <div class="stage-copy"><strong data-zh="控制需求">Control demand</strong><span data-zh="期望力和力矩">Requested force and moment</span></div>
+        </li>
+        <li>
+          <span class="stage-icon"><img src="assets/method-icons/control-allocation.png" width="144" height="144" alt=""></span>
+          <div class="stage-copy"><strong data-zh="KAN 控制分配">KAN allocation</strong><span data-zh="映射到各执行器指令">Map demand to actuator commands</span></div>
+        </li>
+        <li>
+          <span class="stage-icon"><img src="assets/method-icons/online-adaptation.png" width="144" height="144" alt=""></span>
+          <div class="stage-copy"><strong data-zh="在线自适应">Online adaptation</strong><span data-zh="基于李雅普诺夫分析的有界条件">Lyapunov-based boundedness conditions</span></div>
+        </li>
+      </ol>
+      <p class="method-principle" data-zh="参数敏感度将网络设计与稳定性分析连接起来。">Parameter sensitivity links the network design to the stability analysis.</p>
+      <div class="method-proof"><strong data-zh="252 组闭环仿真">252 closed-loop simulations</strong><span data-zh="原文覆盖 7 种分配器、3 种控制器和 12 种故障场景。">Reported across seven allocators, three controllers and twelve fault scenarios.</span></div>
+    </article>
+      </div>
+    </section>
+    <section class="shell section" id="algorithms" aria-labelledby="algorithms-title">
+      <div class="section-heading"><h2 id="algorithms-title" data-zh="代表算法">Selected algorithms</h2><p data-zh="两项工作分别解决物理建模与在线控制分配问题。">Each method addresses a different part of the modeling and control problem.</p></div>
+      <div class="algorithms">
+        <article class="algorithm">
+          <div class="algorithm-mark"><span>AeroKAN</span><span data-zh="学习架构">Learning architecture</span></div>
+          <h3 data-zh="物理机理嵌入的 Kolmogorov–Arnold 网络">Physics-embedded Kolmogorov–Arnold networks</h3>
+          <p data-zh="在每条边中引入解析升力先验，由可学习残差补足先验。共享的过渡参数可以直接从数据估计，无需为单独的物理损失项设权重。">An analytical lift prior is part of each edge function. A trainable residual corrects the prior, and the shared transition parameter can be estimated from data without a separate physics-loss weight.</p>
+          <div class="algorithm-evidence"><span data-zh="验证">Evidence</span><span data-zh="用对称翼型和有弯度翼型的风洞测量数据验证升力系数预测。">Lift-coefficient predictions are evaluated against wind-tunnel measurements for both symmetric and cambered airfoils.</span></div>
+          <a class="text-link" href="https://doi.org/10.1016/j.engappai.2026.116648" data-zh="AeroKAN 论文">AeroKAN paper</a>
+        </article>
+        <article class="algorithm">
+          <div class="algorithm-mark"><span>allocKAN</span><span data-zh="自适应控制">Adaptive control</span></div>
+          <h3 data-zh="带李雅普诺夫稳定性分析的在线控制分配">Online allocation with Lyapunov stability analysis</h3>
+          <p data-zh="KAN 随执行器效能变化在线调整控制分配。参数敏感度界进入复合李雅普诺夫分析，得到闭环一致最终有界的条件。">A KAN adapts control allocation as actuator effectiveness changes. Bounds on parameter sensitivity enter the composite Lyapunov analysis to characterize conditions for uniformly ultimately bounded behavior.</p>
+          <div class="algorithm-evidence"><span data-zh="验证">Evidence</span><span data-zh="近似参数匹配的离线对照与故障场景闭环仿真。">Approximately parameter-matched offline comparison and closed-loop fault simulations.</span></div>
+          <a class="text-link" href="https://doi.org/10.1016/j.engappai.2026.114453" data-zh="allocKAN 论文">allocKAN paper</a>
+        </article>
+      </div>
+      <div class="application-strip">
+        <div><h3 data-zh="可转换构型飞行器">Convertible aircraft</h3><p data-zh="悬停与前飞转换时，气动流态与执行器效能同步变化。研究聚焦过渡段升力预测与自适应控制分配。">During conversion between hover and forward flight, aerodynamic regimes and actuator effectiveness change together. My work addresses lift prediction and adaptive control allocation across that transition.</p></div>
+        <div><h3 data-zh="具身智能">Embodied intelligence</h3><p data-zh="正在探索用于控制的紧凑机器人动力学模型。相关专利申请涉及预算约束下的 KAN 边函数选择与机械臂末端位置预测。">Current direction: compact robot dynamics models for control. A related patent application addresses KAN edge selection under a model budget and robot end-effector position prediction.</p></div>
+      </div>
+    </section>
+    <section class="shell section" id="publications" aria-labelledby="publications-title">
+      <div class="publications-heading">
+        <div class="section-heading"><h2 id="publications-title" data-zh="代表研究">Selected research</h2></div>
+        <div class="filters" role="group" aria-label="Filter publications" hidden>
+          <button type="button" data-filter="all" aria-pressed="true" data-zh="全部">All</button>
+          <button type="button" data-filter="modeling" aria-pressed="false" data-zh="建模">Modeling</button>
+          <button type="button" data-filter="control" aria-pressed="false" data-zh="控制">Control</button>
+          <button type="button" data-filter="design" aria-pressed="false" data-zh="设计自动化">Design automation</button>
+        </div>
+      </div>
+      <p class="visually-hidden" data-pub-status aria-live="polite"></p>
+      <ol class="publication-list" aria-label="Selected research papers">
+        <li class="paper" data-topics="modeling" id="paper-aero">
+          <figure class="paper-figure">
+            <button class="publication-preview" type="button" aria-haspopup="dialog">
+              <span class="figure-frame paper-frame"><img src="assets/paper-aero.webp" width="1400" height="980" loading="lazy" alt="A trained AeroEdge decomposed into an analytical lift prior, a B-spline term and a SiLU term, with their sum plotted alongside the components" data-alt-zh="已训练的 AeroEdge 边函数分解为解析升力先验、B 样条和 SiLU 三项，并与叠加后的边函数对照。"></span>
+              <span class="visually-hidden" data-zh="放大论文图">Expand paper figure</span>
+            </button>
+          </figure>
+          <div class="paper-description">
+            <div class="pub-meta"><span class="publication-venue">EAAI</span><time datetime="2026">2026</time></div>
+            <h3><a href="https://doi.org/10.1016/j.engappai.2026.116648">Aerodynamics-encoded Kolmogorov–Arnold networks for lift-coefficient modelling across a convertible aircraft transition envelope</a></h3>
+            <p class="paper-evidence" data-zh="AeroEdge 在每条网络边上叠加解析升力先验、B 样条和 SiLU，用对称和有弯度翼型的风洞数据验证转换段升力预测。">AeroEdge combines an analytical lift prior, B-splines and SiLU on every network edge. Wind-tunnel data from symmetric and cambered airfoils are used to evaluate transition lift predictions.</p>
+            <p class="authors"><strong>Jingxian Liao</strong>, Yun Li</p>
+            <div class="paper-citation"><p class="venue">Engineering Applications of Artificial Intelligence, 186, 116648</p><a class="paper-link" href="https://doi.org/10.1016/j.engappai.2026.116648" data-zh="DOI">DOI</a></div>
+          </div>
+        </li>
+        <li class="paper" data-topics="control" id="paper-alloc">
+          <figure class="paper-figure">
+            <button class="publication-preview" type="button" aria-haspopup="dialog">
+              <span class="figure-frame paper-frame"><img src="assets/paper-alloc.webp" width="879" height="735" loading="lazy" alt="Closed-loop control architecture comparing allocKAN and allocMLP" data-alt-zh="allocKAN 与 allocMLP 的闭环控制架构对照。"></span>
+              <span class="visually-hidden" data-zh="放大论文图">Expand paper figure</span>
+            </button>
+          </figure>
+          <div class="paper-description">
+            <div class="pub-meta"><span class="publication-venue">EAAI</span><time datetime="2026">2026</time></div>
+            <h3><a href="https://doi.org/10.1016/j.engappai.2026.114453">Kolmogorov–Arnold network-based adaptive control allocation for overactuated systems with Lyapunov-stable learning</a></h3>
+            <p class="paper-evidence" data-zh="推导在线控制分配的李雅普诺夫稳定性条件，并在闭环故障仿真中评估控制表现。">Derives Lyapunov stability conditions for online allocation and evaluates closed-loop behavior in fault simulations.</p>
+            <p class="authors"><strong>Jingxian Liao</strong>, Chenkai Cao, Yun Li</p>
+            <div class="paper-citation"><p class="venue">Engineering Applications of Artificial Intelligence, 173, 114453</p><a class="paper-link" href="https://doi.org/10.1016/j.engappai.2026.114453" data-zh="DOI">DOI</a></div>
+          </div>
+        </li>
+        <li class="paper" data-topics="design" id="paper-cad">
+          <figure class="paper-figure">
+            <button class="publication-preview" type="button" aria-haspopup="dialog">
+              <span class="figure-frame paper-frame"><img src="assets/paper-cad.webp" width="988" height="1000" loading="lazy" alt="CADLLM framework for generating parametric CAD models from text descriptions" data-alt-zh="CADLLM 从文本描述生成参数化模型的技术框架。"></span>
+              <span class="visually-hidden" data-zh="放大论文图">Expand paper figure</span>
+            </button>
+          </figure>
+          <div class="paper-description">
+            <div class="pub-meta"><span class="publication-venue">ACL</span><time datetime="2025">2025</time></div>
+            <h3><a href="https://aclanthology.org/2025.acl-long.1054/">Automated CAD Modeling Sequence Generation from Text Descriptions via Transformer-Based Large Language Models</a></h3>
+            <p class="paper-evidence" data-zh="提出 CADLLM，从文本描述生成可执行的参数化 CAD 建模序列。">Presents CADLLM for generating parametric CAD modeling sequences from text descriptions.</p>
+            <p class="authors">Jianxing Liao, Junyan Xu, Yatao Sun, Maowen Tang, Sicheng He, <strong>Jingxian Liao</strong>, Shui Yu, Yun Li, Xiaohong Guan</p>
+            <div class="paper-citation"><p class="venue">Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics, 21720–21748</p><a class="paper-link" href="https://aclanthology.org/2025.acl-long.1054/" data-zh="论文">Publisher</a> <a class="paper-link" href="https://jianxliao.github.io/cadllm-page/" data-zh="项目主页">Project</a></div>
+          </div>
+        </li>
+        <li class="paper" data-topics="modeling control" id="paper-tiltrotor">
+          <figure class="paper-figure">
+            <button class="publication-preview" type="button" aria-haspopup="dialog">
+              <span class="figure-frame paper-frame paper-system-diagram"><img src="assets/paper-tiltrotor.webp" width="2400" height="1351" loading="lazy" alt="Overview of nonlinear tiltrotor transition dynamics and the harmonic disturbance observer-based super-twisting controller for longitudinal trajectory tracking" data-alt-zh="倾转旋翼过渡飞行的系统总览，展示非线性动力学模型，以及基于谐波扰动观测器的超螺旋滑模控制系统。"></span>
+              <span class="visually-hidden" data-zh="放大论文图">Expand paper figure</span>
+            </button>
+          </figure>
+          <div class="paper-description">
+            <div class="pub-meta"><span class="publication-venue">Drones</span><time datetime="2023">2023</time></div>
+            <h3><a href="https://doi.org/10.3390/drones7040255">Transition Nonlinear Blended Aerodynamic Modeling and Anti-Harmonic Disturbance Robust Control of Fixed-Wing Tiltrotor UAV</a></h3>
+            <p class="paper-evidence" data-zh="建立转换段非线性气动模型，将谐波扰动观测器与超螺旋滑模控制器接入纵向闭环。">Models nonlinear transition aerodynamics and integrates a harmonic disturbance observer with a super-twisting sliding mode controller in the longitudinal feedback loop.</p>
+            <p class="authors"><strong>Jingxian Liao</strong>, Hyochoong Bang</p>
+            <div class="paper-citation"><p class="venue">Drones, 7(4), 255</p><a class="paper-link" href="https://doi.org/10.3390/drones7040255" data-zh="DOI">DOI</a></div>
+          </div>
+        </li>
+      </ol>
+
+      <a class="text-link more-pubs" href="https://orcid.org/0000-0002-6148-9685" data-zh="在 ORCID 查看完整学术记录">View research record on ORCID</a>
+    </section>
+    <section class="section project-band" id="projects" aria-labelledby="projects-title">
+      <div class="shell">
+        <div class="section-heading"><h2 id="projects-title" data-zh="主持科研项目">Funded research</h2><p data-zh="主持四项科研项目，合计资助 46 万元，覆盖飞行动力学、学习控制与人工智能辅助工程设计。">Four projects as principal investigator, totaling CNY 460,000 in funding across flight dynamics, learning-based control and AI-assisted engineering design.</p></div>
+        <div class="project-grid"><article class="project" id="project-shenzhen">
+      <div class="project-meta"><span><span data-zh="项目负责人">Principal investigator</span></span> <span class="project-status active" data-zh="在研">Active</span></div>
+      <h3 data-zh="基于人工智能科学计算的低空交通倾转旋翼无人机动力学精准建模">Grey-box dynamics for tiltrotor aircraft</h3>
+      <p class="funding" data-zh="深圳市自然科学基金面上项目">Shenzhen Science and Technology Program · General Program</p>
+      <p class="project-description" data-zh="面向低空交通，研究倾转旋翼过渡段的机理与数据融合动力学建模。研究路线涵盖模型构建与飞行验证。">Develops physics-guided models of transition aerodynamics and dynamics for low-altitude air transportation, with a validation plan that includes flight testing.</p>
+      <div class="project-dates"><span data-zh="2025.10–2028.10">Oct 2025–Oct 2028</span><span>JCYJ20250604180415020</span></div>
+      <p class="grant-award"><span data-zh="资助金额">Funding</span><strong data-zh="30 万元">CNY 300,000</strong></p>
+      <figure class="route">
+        <button class="figure-preview" type="button" aria-haspopup="dialog">
+          <span class="figure-frame">
+            <span class="roadmap-en" lang="en"><span class="route-step"><strong>Identify latent physical relationships</strong><span>Combine system dynamics with local mechanisms and disentangle coupled variables.</span></span><span class="route-step"><strong>Fuse physics and data across scales</strong><span>Use physical priors to guide model structure and the search over hyperparameters.</span></span><span class="route-step"><strong>Formulate a state-space gray-box model</strong><span>Combine a global physics model with local learned corrections and dynamic updates.</span></span><span class="route-step"><strong>Plan and evaluate validation</strong><span>Organize the data, assessment criteria and experiments, and use feedback to refine the model.</span></span></span>
+            <img class="roadmap-zh" lang="zh-CN" src="assets/shenzhen-roadmap.webp" width="1465" height="1305" loading="lazy" alt="深圳市面上项目总体技术路线图，包含隐含物理关系挖掘、跨尺度数物融合、灰箱模型和实验验证。">
+          </span>
+          <span class="figure-preview-label"><span data-zh="放大路线图">Expand roadmap</span><span class="zoom" aria-hidden="true">＋</span></span>
+        </button>
+        <ul class="detail-notes roadmap-en" lang="en"><li>Scientific questions: efficient physics–data fusion in the state-space formulation and physics-led flight dynamics modeling across scales.</li><li>Research strand 1: identify latent variables and their couplings, then develop representations that disentangle nonlinear dynamic behavior.</li><li>Research strand 2: search cross-scale model structures and hyperparameters. Use prior physical principles to improve interpretability of the model and its predictions.</li><li>Research strand 3: combine a globally mechanistic model with locally fitted corrections. Place this combination in a nonlinear state-space model with dynamic updates.</li><li>Proposed validation: objective tests of control accuracy and flight performance, subjective feedback from users and engineers, system and control-signal datasets, and simulation and data-analysis tools.</li></ul>
+      </figure>
+    </article><article class="project" id="project-guangdong">
+      <div class="project-meta"><span><span data-zh="项目负责人">Principal investigator</span></span> <span class="project-status" data-zh="结题">Completed</span></div>
+      <h3 data-zh="基于人工智能科学计算的低空交通无人机控制技术及应用">Learning-based UAV control</h3>
+      <p class="funding" data-zh="广东省海外名师项目">Guangdong Overseas Expert Program</p>
+      <p class="project-description" data-zh="研究人工智能科学计算在低空交通无人机控制中的应用。">Studies scientific machine learning for UAV control and its application to low-altitude air transportation.</p>
+      <div class="project-dates"><span data-zh="2025.06–2026.11">Jun 2025–Nov 2026</span><span>MS202500011</span></div>
+      <p class="grant-award"><span data-zh="资助金额">Funding</span><strong data-zh="5 万元">CNY 50,000</strong></p>
+      <figure class="route">
+        <button class="figure-preview" type="button" aria-haspopup="dialog">
+          <span class="figure-frame">
+            <span class="roadmap-en" lang="en"><span class="route-step"><strong>Engineering requirements</strong><span>Frame fast, accurate and stable transition prediction for flight safety.</span></span><span class="route-step"><strong>Key modeling challenge</strong><span>Coupled mechanisms are difficult to represent with a tractable model.</span></span><span class="route-step"><strong>Physics-led learning</strong><span>Embed physics, learn cross-scale relationships and construct a gray-box representation.</span></span><span class="route-step"><strong>Validation framework</strong><span>Compare a scalable model across simulation, wind-tunnel experiments and flight testing.</span></span></span>
+            <img class="roadmap-zh" lang="zh-CN" src="assets/guangdong-roadmap.webp" width="1465" height="1134" loading="lazy" alt="工程需求、建模挑战、物理主导的跨尺度灰箱模型和多保真度验证。">
+          </span>
+          <span class="figure-preview-label"><span data-zh="放大路线图">Expand roadmap</span><span class="zoom" aria-hidden="true">＋</span></span>
+        </button>
+        <ul class="detail-notes roadmap-en" lang="en"><li>Engineering requirements: safe flight, accurate dynamics, stable behavior and efficient model evaluation.</li><li>Research program: identify latent physical relationships, model flight dynamics across scales with physics and data, and describe structure–performance relationships with a state-space gray-box model.</li><li>Proposed validation framework spans simulation, wind-tunnel experiments and flight testing. Intended outputs include decoupling and model-search algorithms alongside mixed-order subsystem and nonlinear state-space models.</li></ul>
+      </figure>
+    </article><article class="project" id="project-helicopter">
+      <div class="project-meta"><span><span data-zh="项目负责人">Principal investigator</span></span> <span class="project-status" data-zh="结题">Completed</span></div>
+      <h3 data-zh="倾转旋翼无人机过渡过程最优倾转策略研究">Optimal tilt-transition strategies</h3>
+      <p class="funding" data-zh="直升机动力学全国重点实验室开放基金">National Key Laboratory of Helicopter Aeromechanics · Open Research Fund</p>
+      <p class="project-description" data-zh="结合过渡段气动与飞行动力学建模、轨迹优化，研究旋翼倾转角如何随过渡过程调度。">Studies how to schedule rotor tilt through transition by coupling aerodynamic and flight-dynamics models with trajectory optimization.</p>
+      <div class="project-dates"><span data-zh="2024.04–2025.12">Apr 2024–Dec 2025</span><span>2024-ZSJ-LB-01-01</span></div>
+      <p class="grant-award"><span data-zh="资助金额">Funding</span><strong data-zh="10 万元">CNY 100,000</strong></p>
+      <figure class="route">
+        <button class="figure-preview" type="button" aria-haspopup="dialog">
+          <span class="figure-frame">
+            <span class="roadmap-en" lang="en"><span class="route-step"><strong>Moment feasibility</strong><span>Compute the attainable moment set along the transition.</span></span><span class="route-step"><strong>Cascaded control allocation</strong><span>Use angle of attack to prioritize the effectors available at each operating condition.</span></span><span class="route-step"><strong>Transition planning</strong><span>Relate airspeed, angle of attack and rotor tilt, then formulate model-predictive planning.</span></span><span class="route-step"><strong>Learning-assisted robust flight</strong><span>Analyze trim conditions and compare offline learning methods with conventional control.</span></span></span>
+            <img class="roadmap-zh" lang="zh-CN" src="assets/helicopter-roadmap.webp" width="1442" height="1400" loading="lazy" alt="倾转过渡飞行示意，以及力矩优化串接链分配和学习辅助飞行两条路线。">
+          </span>
+          <span class="figure-preview-label"><span data-zh="放大路线图">Expand roadmap</span><span class="zoom" aria-hidden="true">＋</span></span>
+        </button>
+        <ul class="detail-notes roadmap-en" lang="en"><li>Strand 1: update the attainable moment set, design moment-optimal daisy-chain control allocation, use a neural model to study the relationship between angle of attack, airspeed and tilt angle, and formulate the transition strategy with model predictive control.</li><li>Strand 2: analyze operating points and trim along the transition. Use inverse reinforcement learning or a generative adversarial network for offline training, then compare training time and flight-control assistance against conventional control.</li></ul>
+      </figure>
+    </article><article class="project" id="project-sichuan">
+      <div class="project-meta"><span><span data-zh="项目负责人">Principal investigator</span></span> <span class="project-status" data-zh="结题">Completed</span></div>
+      <h3 data-zh="AI赋能的CAutoD数字协同创新平台">AI-assisted computer-aided design</h3>
+      <p class="funding" data-zh="四川省科技创新苗子工程培育项目">Sichuan Science and Technology Innovation Seedling Program · Cultivation Project</p>
+      <p class="project-description" data-zh="探索人工智能如何辅助计算机辅助概念设计，并支持工程设计流程中的数字化协同。">Explores how artificial intelligence can support computer-aided conceptual design and collaboration across engineering workflows.</p>
+      <div class="project-dates"><span data-zh="2024.09–2025.08">Sep 2024–Aug 2025</span><span>MZGC20240134</span></div>
+      <p class="grant-award"><span data-zh="资助金额">Funding</span><strong data-zh="1 万元">CNY 10,000</strong></p>
+      <figure class="route">
+        <button class="figure-preview" type="button" aria-haspopup="dialog">
+          <span class="figure-frame">
+            <span class="roadmap-en" lang="en"><span class="route-step"><strong>Multimodal requirements</strong><span>Extract design requirements from text, 3D models and images.</span></span><span class="route-step"><strong>Automatic CAD generation</strong><span>Plan and execute CAD modeling steps, then evaluate the resulting model.</span></span><span class="route-step"><strong>Requirements alignment</strong><span>Compare preliminary models with requirements and feed discrepancies back into generation.</span></span><span class="route-step"><strong>Simulation and optimization</strong><span>Set the objective and constraints, select an optimizer and return an improved CAD model.</span></span></span>
+            <img class="roadmap-zh" lang="zh-CN" src="assets/sichuan-roadmap.webp" width="1121" height="1187" loading="lazy" alt="CAD 多模态需求输入、需求分析、自动生成与评估、仿真优化及 CAD 模型输出。">
+          </span>
+          <span class="figure-preview-label"><span data-zh="放大路线图">Expand roadmap</span><span class="zoom" aria-hidden="true">＋</span></span>
+        </button>
+        <ul class="detail-notes roadmap-en" lang="en"><li>Requirements analysis: multimodal extraction, spatial alignment and 3D reconstruction, supported by a knowledge graph, user feedback and follow-up dialogue.</li><li>Model generation: parse CAD, develop a task plan, execute CAD code and check whether execution succeeded.</li><li>Preliminary evaluation: convert representations across modalities, inspect point clouds or multiview images, identify parameters and integrate feedback into subsequent generation.</li><li>Simulation and optimization: quantify objectives, formulate optimization models, select and initialize an algorithm, evaluate candidates and return the selected CAD model.</li><li>Supporting approaches: multimodal encoders, cross-modal feature alignment and fusion, model fine-tuning, in-context learning and multi-agent decision-making.</li></ul>
+      </figure>
+    </article></div>
+        <aside class="collaborative-project">
+          <h3 data-zh="参与项目">Collaborative research</h3>
+          <p data-zh="微重力模拟环境下空间机械臂多柔体动力学建模、分析与实验">Dynamics of flexible space manipulators under simulated microgravity</p>
+          <p class="collab-meta" data-zh="国家自然科学基金面上项目 · 项目参与 · 2019–2022 · 11872108">National Natural Science Foundation of China · General Program · Project participant · 2019–2022 · 11872108</p>
+          <p class="grant-award"><span data-zh="项目总经费">Total project funding</span><strong data-zh="63 万元">CNY 630,000</strong></p>
+        </aside>
+      </div>
+    </section>
+    <section class="shell section" id="patents" aria-labelledby="patents-title">
+      <div class="section-heading"><h2 id="patents-title" data-zh="专利">Patents</h2></div>
+      <article class="patent">
+        <div class="patent-info"><p class="patent-status" data-zh="中国 · 2025 年授权">China · Granted 2025</p><strong class="patent-number">ZL202510296558.7</strong></div>
+        <div><h3 data-zh="基于迎角动态的倾转旋翼机过渡态串接链控制分配方法">Angle-of-attack-dynamics-based daisy-chain control allocation for tiltrotor aircraft during transition</h3>
+        <p class="inventors" data-zh="发明人：廖静娴、李耘、曹宸恺">Inventors: Jingxian Liao, Yun Li, and Chenkai Cao</p><a class="text-link" href="https://patents.google.com/patent/CN119806193B/zh" data-zh="查看授权专利 CN119806193B">Patent record CN119806193B</a></div>
+      </article>
+      <article class="patent">
+        <div class="patent-info"><p class="patent-status" data-zh="中国 · 已申请，待授权">China · Patent application pending</p><strong class="patent-number">202611036737.8</strong></div>
+        <div><h3 data-zh="飞行器气动系数预测模型训练方法、飞行器气动系数预测方法">Training a model for aircraft aerodynamic coefficient prediction and predicting aircraft aerodynamic coefficients</h3>
+        <p class="inventors" data-zh="发明人：廖静娴、李耘 · 申请日：2026 年 7 月 13 日">Inventors: Jingxian Liao and Yun Li · Filed 13 July 2026</p></div>
+      </article>
+      <article class="patent">
+        <div class="patent-info"><p class="patent-status" data-zh="中国 · 已申请，待授权">China · Patent application pending</p><strong class="patent-number">202611445457.2</strong></div>
+        <div><h3 data-zh="基于预算化边函数选择 KAN 模型的训练方法、机械臂末端位置预测方法及机械臂">Training a KAN with budgeted edge-function selection, a method for predicting end-effector position, and a robot manipulator</h3>
+        <p class="inventors" data-zh="发明人：廖静娴、李耘 · 申请日：2026 年 9 月 17 日">Inventors: Jingxian Liao and Yun Li · Filed 17 September 2026</p></div>
+      </article>
+    </section>
+    <section class="shell section" id="experience" aria-labelledby="experience-title">
+      <div class="section-heading"><h2 id="experience-title" data-zh="教育与科研经历">Academic experience</h2></div>
+      <ol class="experience-list"><li><p class="period" data-zh="2024.04–2027.03">Apr 2024–Mar 2027</p><div><h3 data-zh="电子科技大学（深圳）高等研究院">Shenzhen Institute for Advanced Study, UESTC</h3><p class="appointment" data-zh="博士后、助理研究员 · 人工智能工业创新研究中心">Postdoctoral Fellow and Assistant Researcher, Industrial Artificial Intelligence Centre</p><p class="mentor"><span data-zh="博士后合作导师">Postdoctoral mentor</span> <a href="https://yjsjy.uestc.edu.cn/gmis/jcsjgl/dsfc/dsgrjj/11946" data-zh="李耘教授">Prof. Yun Li</a></p></div></li><li><p class="period" data-zh="2020.08–2024.02">Aug 2020–Feb 2024</p><div><h3 data-zh="韩国科学技术院（KAIST）">Korea Advanced Institute of Science and Technology</h3><p class="appointment" data-zh="航空航天工程博士">Ph.D., Aerospace Engineering</p><p class="mentor"><span data-zh="博士导师">Doctoral advisor</span> <a href="https://pure.kaist.ac.kr/en/persons/hyochoong-bang/" data-zh="Hyochoong Bang 教授">Prof. Hyochoong Bang</a></p></div></li><li><p class="period" data-zh="2017.09–2020.07">Sep 2017–Jul 2020</p><div><h3 data-zh="北京理工大学">Beijing Institute of Technology</h3><p class="appointment" data-zh="航空宇航科学与技术硕士">M.Eng., Aeronautical and Astronautical Science and Technology</p><p class="mentor"><span data-zh="硕士导师">Master’s advisor</span> <a href="https://pure.bit.edu.cn/en/persons/xiaodong-song/" data-zh="宋晓东教授">Prof. Xiaodong Song</a></p></div></li><li><p class="period" data-zh="2013.09–2017.06">Sep 2013–Jun 2017</p><div><h3 data-zh="南京航空航天大学">Nanjing University of Aeronautics and Astronautics</h3><p class="appointment" data-zh="探测制导与控制技术学士">B.Eng., Detection, Guidance and Control Technology</p></div></li></ol>
+    </section>
+    <section class="shell section visitor-section" id="visitors" aria-labelledby="visitors-title">
+      <div class="section-heading">
+        <h2 id="visitors-title" data-zh="访客地图">Visitor map</h2>
+      </div>
+      <div class="visitor-layout">
+        <figure class="visitor-figure">
+          <svg class="visitor-world" role="img" aria-labelledby="visitor-map-title" viewBox="0 0 1000 480">
+            <title id="visitor-map-title" data-zh="各国家或地区的访问量分布">World map of visits by country or region</title>
+          </svg>
+          <figcaption class="visitor-legend">
+            <span data-zh="暂无访问">No visits</span><span class="visitor-scale" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-zh="访问较多">More visits</span>
+          </figcaption>
+        </figure>
+        <div class="visitor-summary">
+          <p class="visitor-total"><strong data-visitor-total>—</strong><span data-zh="累计访问次数">Recorded visits</span></p>
+          <div class="visitor-ranking">
+            <h3 data-zh="国家或地区">Countries and regions</h3>
+            <ol data-visitor-ranking aria-labelledby="visitors-title" tabindex="0" hidden></ol>
+            <p class="visitor-state" data-visitor-state role="status" data-zh="正在加载统计…">Loading statistics…</p>
+          </div>
+        </div>
+      </div>
+      <p class="visitor-note"><span data-zh="位置为网络连接推断的国家或地区，仅保存汇总次数。">Location is inferred approximately from the network connection. Only aggregate visit counts are stored.</span> <span data-zh="统计截至 2026-11-26。">Snapshot as of 26 November 2026.</span> <a href="https://jingxianliao.lilac-beech-1138.chatgpt.site/#visitors" data-zh="查看实时统计">Live statistics</a> <a href="https://www.naturalearthdata.com/" data-zh="地理底图：Natural Earth">Map data: Natural Earth</a></p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-layout">
+      <div><h2 data-zh="廖静娴">Jingxian Liao</h2><p data-zh="人工智能工业创新研究中心 · 深圳">Industrial Artificial Intelligence Centre · Shenzhen</p></div>
+      <nav aria-label="Academic profiles">
+        <a href="https://www.i4ai.org/" data-zh="研究中心官网">i4AI Centre</a><a href="https://orcid.org/0000-0002-6148-9685">ORCID</a><a href="#visitors" data-zh="访客地图">Visitor map</a><a href="#top" data-zh="返回顶部">Back to top</a>
+      </nav>
+    </div>
+  </footer>
+  <dialog class="figure-dialog" aria-labelledby="figure-title">
+    <div class="dialog-header"><h2 id="figure-title"></h2><button class="close-dialog" type="button" aria-label="Close" data-zh="关闭">Close</button></div>
+    <div class="dialog-content"></div>
+  </dialog>
+</body>
+</html>
