@@ -415,26 +415,9 @@ html[lang="zh-CN"] .page-heading h1 { letter-spacing: 0; }
 .about-updates .section-heading h2,
 .reviewing-section .section-heading h2,
 .visitor-section .section-heading h2 { font-size: clamp(1.72rem, 3.5vw, 2.48rem); }
-.validation-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
-  gap: clamp(1rem, 3.6vw, 2.5rem);
-  align-items: start;
-}
 .validation-list { display: grid; gap: .78rem; }
-.validation-list div + div { border-top: 1px solid var(--line); padding-top: .67rem; }
 .validation-list dt { color: var(--link); font-weight: 720; }
 .validation-list dd { color: var(--body); margin-top: .12rem; }
-.validation-figure a {
-  display: block;
-  padding: .58rem;
-  border: 1px solid var(--line);
-  border-radius: 9px;
-  background: white;
-}
-.validation-figure a:hover { border-color: var(--green); }
-.validation-figure img { display: block; width: 100%; height: auto; }
-.validation-figure figcaption { color: var(--muted); font-size: .88rem; margin-top: .42rem; }
 .highlight-list { padding: 0; margin: 0; list-style: none; }
 .highlight-list li {
   display: grid;
@@ -467,11 +450,53 @@ html[lang="zh-CN"] .page-heading h1 { letter-spacing: 0; }
   .about-work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 620px) {
-  .about .hero, .validation-grid, .reviewing-grid { grid-template-columns: 1fr; }
+  .about .hero, .reviewing-grid { grid-template-columns: 1fr; }
   .about .hero-copy { grid-row: 1; }
   .about .hero-portrait { max-width: 240px; }
   .highlight-list li { grid-template-columns: 1fr; gap: .14rem; }
 }
 @media (max-width: 500px) {
   .about-work-grid { grid-template-columns: 1fr; }
+}
+
+.lift-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+  margin-bottom: .75rem;
+}
+.lift-heading h3 { font-size: clamp(1.1rem, 2vw, 1.34rem); }
+.lift-pair, .validation-support { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .95rem; }
+.lift-card {
+  display: grid;
+  grid-template-rows: auto 1fr auto minmax(5.1rem, auto);
+  min-width: 0;
+  padding: .85rem .95rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+}
+.lift-card h4 { color: var(--link); font-size: 1rem; }
+.lift-chart { display: block; margin-top: .38rem; border-radius: 3px; }
+.lift-chart img { display: block; width: 100%; height: 100%; aspect-ratio: 1167 / 684; object-fit: contain; }
+.lift-axis { text-align: center; color: var(--muted); font-size: .86rem; }
+.lift-result { align-self: start; margin-top: .58rem; padding-top: .58rem; border-top: 1px solid var(--line); color: var(--body); font-size: .93rem; line-height: 1.58; }
+.lift-legend { display: flex; flex-wrap: wrap; gap: .35rem .9rem; margin: .7rem 0 0; padding: 0; list-style: none; }
+.lift-legend li { display: flex; align-items: center; gap: .36rem; color: var(--muted); font-size: .82rem; }
+.lift-note { margin-top: .38rem; color: var(--muted); font-size: .84rem; }
+.lift-mark { display: inline-block; width: 1.22rem; height: 0; border-top: 2px solid #141414; flex: none; }
+.lift-mark.train, .lift-mark.test { width: .47rem; height: .47rem; margin-inline: .38rem; border-radius: 50%; }
+.lift-mark.train { border: 0; background: #767676; }
+.lift-mark.test { border: 1.5px solid #141414; background: #fff; }
+.lift-mark.skip-model { border-top: 2px dashed #0072b2; }
+.lift-mark.penalty { border-top: 2px dotted #736fb0; }
+.lift-mark.vanilla, .lift-mark.rbf { height: 2px; border: 0; }
+.lift-mark.vanilla { background: repeating-linear-gradient(90deg,#00a4b9 0 6px,transparent 6px 8px,#00a4b9 8px 10px,transparent 10px 12px); }
+.lift-mark.rbf { background: repeating-linear-gradient(90deg,#008c66 0 6px,transparent 6px 8px,#008c66 8px 10px,transparent 10px 12px); }
+.validation-support { margin-top: 1.25rem; padding-top: .82rem; border-top: 1px solid var(--line); }
+@media (max-width: 650px) {
+  .lift-pair, .validation-support { grid-template-columns: 1fr; }
+  .lift-card { grid-template-rows: auto 1fr auto auto; }
 }
