@@ -1,4 +1,52 @@
 (() => {
+  const page = document.body.dataset.page;
+  const englishTitle = document.title;
+  const chineseTitle = document.body.dataset.titleZh || englishTitle;
+  const legacyAnchors = new Map([
+    ["research", "research.html"],
+    ["research-title", "research.html"],
+    ["algorithms", "research.html"],
+    ["publications", "publications.html"],
+    ["publications-title", "publications.html"],
+    ["selected-publications-title", "publications.html"],
+    ["all-publications", "publications.html"],
+    ["all-publications-title", "publications.html"],
+    ["paper-aero", "publications.html"],
+    ["paper-alloc", "publications.html"],
+    ["paper-cad", "publications.html"],
+    ["paper-tiltrotor", "publications.html"],
+    ["patents", "publications.html"],
+    ["projects", "projects.html"],
+    ["project-guangdong", "projects.html"],
+    ["project-helicopter", "projects.html"],
+    ["project-shenzhen", "projects.html"],
+    ["project-sichuan", "projects.html"],
+    ["cv", "cv.html"],
+    ["cv-title", "cv.html"],
+    ["experience", "cv.html"],
+    ["kaist", "cv.html"],
+    ["teaching", "teaching.html"],
+    ["teaching-title", "teaching.html"],
+    ["contact", "contact.html"],
+    ["contact-title", "contact.html"],
+    ["visitors", "contact.html"],
+    ["visitors-title", "contact.html"],
+    ["visitor-map-title", "contact.html"]
+  ]);
+
+  function redirectLegacyAnchor() {
+    if (page !== "about") return false;
+    const destination = legacyAnchors.get(window.location.hash.slice(1));
+    if (!destination) return false;
+    const url = new URL(destination, window.location.href);
+    url.search = window.location.search;
+    url.hash = window.location.hash;
+    window.location.replace(url.href);
+    return true;
+  }
+
+  if (redirectLegacyAnchor()) return;
+
   const translatedText = [...document.querySelectorAll("[data-zh]")].map(element => ({
     element,
     en: element.textContent,
@@ -15,13 +63,11 @@
       zh: element.dataset[key]
     })));
   const languages = [...document.querySelectorAll("[data-lang]")];
+  const filterBar = document.querySelector(".filters");
   const filters = [...document.querySelectorAll("[data-filter]")];
   const papers = [...document.querySelectorAll("[data-topics]")];
   const status = document.querySelector("[data-pub-status]");
   const alternateName = document.querySelector(".alt-name");
-  const dialog = document.querySelector(".figure-dialog");
-  const dialogTitle = dialog.querySelector("h2");
-  const dialogContent = dialog.querySelector(".dialog-content");
   let language = "en";
   let filter = "all";
 
@@ -34,7 +80,7 @@
       if (matches) visible += 1;
     }
     for (const button of filters) button.setAttribute("aria-pressed", String(button.dataset.filter === value));
-    if (announce) {
+    if (announce && status) {
       status.textContent = language === "zh"
         ? `显示 ${visible} 篇论文`
         : `${visible} ${visible === 1 ? "paper" : "papers"} shown`;
@@ -45,8 +91,8 @@
     language = value === "zh" ? "zh" : "en";
     const chinese = language === "zh";
     document.documentElement.lang = chinese ? "zh-CN" : "en";
-    document.title = chinese ? "廖静娴 · 科学机器学习与控制" : "Jingxian Liao · Scientific Machine Learning and Control";
-    alternateName.lang = chinese ? "en" : "zh-CN";
+    document.title = chinese ? chineseTitle : englishTitle;
+    if (alternateName) alternateName.lang = chinese ? "en" : "zh-CN";
     for (const entry of translatedText) entry.element.textContent = entry[language];
     for (const entry of translatedAttributes) entry.element.setAttribute(entry.attribute, entry[language]);
     for (const button of languages) button.setAttribute("aria-pressed", String(button.dataset.lang === language));
@@ -57,7 +103,7 @@
         // The language still applies when storage is unavailable.
       }
     }
-    selectFilter(filter, Boolean(status.textContent));
+    if (filterBar) selectFilter(filter, Boolean(status?.textContent));
   }
 
   function revealTarget(hash = window.location.hash) {
@@ -68,7 +114,7 @@
       selectFilter("all", true);
       changed = true;
     }
-    for (let detail = target.closest("details"); detail; detail = detail.parentElement.closest("details")) {
+    for (let detail = target.closest("details"); detail; detail = detail.parentElement?.closest("details")) {
       if (!detail.open) {
         detail.open = true;
         changed = true;
@@ -86,15 +132,22 @@
   selectLanguage(preference || "en");
   for (const button of languages) button.addEventListener("click", () => selectLanguage(button.dataset.lang, true));
   for (const button of filters) button.addEventListener("click", () => selectFilter(button.dataset.filter, true));
-  document.querySelector(".language").hidden = false;
-  document.querySelector(".filters").hidden = false;
+  const languageControl = document.querySelector(".language");
+  if (languageControl) languageControl.hidden = false;
+  if (filterBar) filterBar.hidden = false;
 
-  window.addEventListener("hashchange", () => revealTarget());
+  window.addEventListener("hashchange", () => {
+    if (!redirectLegacyAnchor()) revealTarget();
+  });
   for (const link of document.querySelectorAll('a[href^="#"]')) {
     link.addEventListener("click", () => revealTarget(link.hash));
   }
   revealTarget();
 
+  const dialog = document.querySelector(".figure-dialog");
+  if (!dialog) return;
+  const dialogTitle = dialog.querySelector("h2");
+  const dialogContent = dialog.querySelector(".dialog-content");
   for (const trigger of document.querySelectorAll(".figure-preview, .publication-preview")) {
     trigger.addEventListener("click", () => {
       const figure = trigger.closest("figure");

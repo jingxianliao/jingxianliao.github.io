@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jingxian Liao (廖静娴), postdoctoral researcher at UESTC. Physics-embedded machine learning and adaptive control for convertible aircraft and embodied systems.">
+  <meta name="theme-color" content="#fcf7e9">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Publications · Jingxian Liao">
+  <meta property="og:description" content="Physics-embedded machine learning and adaptive control for convertible aircraft.">
+  <meta property="og:image" content="https://jingxianliao.github.io/assets/jingxian-liao-portrait.webp">
+  <meta property="og:url" content="https://jingxianliao.github.io/publications.html">
+  <title>Publications · Jingxian Liao</title>
+  <link rel="canonical" href="https://jingxianliao.github.io/publications.html">
+  <link rel="stylesheet" href="academic.css?v=pages-20261126">
+  <script src="academic.js?v=pages-20261126" defer></script>
+</head>
+<body id="top" data-page="publications" data-title-zh="论文 · 廖静娴">
+  <a class="skip" href="#main" data-zh="跳到正文">Skip to content</a>
+  <header class="site-header">
+    <div class="shell nav-layout">
+      <a class="wordmark" href="index.html"><span class="monogram" aria-hidden="true">JL</span><span data-zh="廖静娴">Jingxian Liao</span></a>
+      <nav class="nav-links" aria-label="Sections" data-label-zh="页面栏目">
+        <a href="index.html" data-zh="关于我">About</a>
+        <a href="research.html" data-zh="研究">Research</a>
+        <a href="publications.html" aria-current="page" data-zh="论文">Publications</a>
+        <a href="projects.html" data-zh="项目">Projects</a>
+        <a href="cv.html" data-zh="简历">CV</a>
+        <a href="teaching.html" data-zh="教学">Teaching</a>
+        <a href="contact.html" data-zh="联系">Contact</a>
+      </nav>
+      <div class="language" role="group" aria-label="Language / 语言" hidden>
+        <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" data-lang="zh" aria-pressed="false" lang="zh-CN">中文</button>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section class="shell section" id="publications" aria-labelledby="publications-title">
+      <div class="publication-lead">
+      <div class="section-heading page-heading">
+        <h1 id="publications-title" data-zh="论文">Publications</h1>
+      </div>
+        <div class="page-links">
+          <a class="text-link" href="#all-publications" data-zh="完整论文列表">Full publication list</a>
+          <a class="text-link" href="#patents" data-zh="专利">Patents</a>
+        </div>
+      </div>
+      <div class="publication-tools">
+        <h2 id="selected-publications-title" data-zh="代表论文">Selected papers</h2>
+        <div class="filters" role="group" aria-label="Filter selected papers" data-label-zh="筛选代表论文" hidden>
+          <button type="button" data-filter="all" aria-pressed="true" data-zh="全部">All</button>
+          <button type="button" data-filter="modeling" aria-pressed="false" data-zh="建模">Modeling</button>
+          <button type="button" data-filter="control" aria-pressed="false" data-zh="控制">Control</button>
+          <button type="button" data-filter="design" aria-pressed="false" data-zh="设计自动化">Design automation</button>
+        </div>
+      </div>
+      <p class="visually-hidden" data-pub-status aria-live="polite"></p>
+      <ol class="publication-list" aria-labelledby="selected-publications-title">
+        <li class="paper paper-featured" data-topics="modeling" id="paper-aero">
+          <div class="paper-description">
+            <div class="pub-meta"><span class="publication-venue">EAAI</span><time datetime="2026">2026</time></div>
+            <h3><a href="https://doi.org/10.1016/j.engappai.2026.116648">Aerodynamics-encoded Kolmogorov–Arnold networks for lift-coefficient modelling across a convertible aircraft transition envelope</a></h3>
+            <p class="paper-evidence" data-zh="AeroEdge 在每条网络边上叠加解析升力先验、B 样条和 SiLU，用对称和有弯度翼型的风洞数据验证转换段升力预测。">AeroEdge combines an analytical lift prior, B-splines and SiLU on every network edge. Wind-tunnel data from symmetric and cambered airfoils are used to evaluate transition lift predictions.</p>
+            <p class="authors"><strong>Jingxian Liao</strong>, Yun Li</p>
+            <div class="paper-citation"><p class="venue">Engineering Applications of Artificial Intelligence, 186, 116648</p><a class="paper-link" href="https://doi.org/10.1016/j.engappai.2026.116648" data-zh="DOI">DOI</a></div>
+          </div>
+          <div class="paper-media">
+            <figure class="paper-figure">
+              <button class="publication-preview" type="button" aria-haspopup="dialog">
+                <span class="figure-frame paper-frame"><img class="aero-edge-diagram" src="assets/paper-aero.webp" width="1400" height="980" loading="lazy" alt="A trained AeroEdge decomposed into an analytical lift prior, a B-spline term and a SiLU term, with their sum plotted alongside the components" data-alt-zh="已训练的 AeroEdge 边函数分解为解析升力先验、B 样条和 SiLU 三项，并与叠加后的边函数对照。"></span>
+                <span class="visually-hidden" data-zh="放大 AeroEdge 论文图">Expand AeroEdge paper figure</span>
+              </button>
+              <figcaption data-zh="AeroEdge 边函数分解">AeroEdge function decomposition</figcaption>
+            </figure>
+            <figure class="paper-figure">
+              <a class="photo-preview" href="assets/aerokan-research-talk.webp" target="_blank" rel="noopener">
+                <img src="assets/aerokan-research-talk.webp" width="1200" height="800" loading="lazy" alt="Open photo of Jingxian Liao presenting aerodynamic modeling results in a new tab" data-alt-zh="在新标签页打开廖静娴介绍气动建模结果的报告现场照片">
+              </a>
+              <figcaption data-zh="气动建模研究报告">Aerodynamic modeling presentation</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li class="paper" data-topics="control" id="paper-alloc">
+          <figure class="paper-figure">
+            <button class="publication-preview" type="button" aria-haspopup="dialog">
+              <span class="figure-frame paper-frame"><img src="assets/paper-alloc.webp" width="879" height="735" loading="lazy" alt="Closed-loop control architecture comparing allocKAN and allocMLP" data-alt-zh="allocKAN 与 allocMLP 的闭环控制架构对照。"></span>
+              <span class="visually-hidden" data-zh="放大论文图">Expand paper figure</span>
+            </button>
+          </figure>
+          <div class="paper-description">
+            <div class="pub-meta"><span class="publication-venue">EAAI</span><time datetime="2026">2026</time></div>
+            <h3><a href="https://doi.org/10.1016/j.engappai.2026.114453">Kolmogorov–Arnold network-based adaptive control allocation for overactuated systems with Lyapunov-stable learning</a></h3>
+            <p class="paper-evidence" data-zh="为在线控制分配推导李雅普诺夫稳定性条件。在三种控制器下，allocKAN 的平均终态状态范数较 allocMLP 降低 37.6%–46.6%。">Derives Lyapunov stability conditions for online allocation. Across three controllers, allocKAN reduced the mean final state norm by 37.6–46.6% relative to allocMLP.</p>
+            <p class="authors"><strong>Jingxian Liao</strong>, Chenkai Cao, Yun Li</p>
+            <div class="paper-citation"><p class="venue">Engineering Applications of Artificial Intelligence, 173, 114453</p><a class="paper-link" href="https://doi.org/10.1016/j.engappai.2026.114453" data-zh="DOI">DOI</a></div>
+          </div>
+        </li>
+        <li class="paper" data-topics="modeling control" id="paper-tiltrotor">
+          <figure class="paper-figure">
+            <button class="publication-preview" type="button" aria-haspopup="dialog">
+              <span class="figure-frame paper-frame paper-system-diagram"><img src="assets/paper-tiltrotor.webp" width="2400" height="1351" loading="lazy" alt="Overview of nonlinear tiltrotor transition dynamics and the harmonic disturbance observer-based super-twisting controller for longitudinal trajectory tracking" data-alt-zh="倾转旋翼过渡飞行的系统总览，展示非线性动力学模型，以及基于谐波扰动观测器的超螺旋滑模控制系统。"></span>
+              <span class="visually-hidden" data-zh="放大论文图">Expand paper figure</span>
+            </button>
+          </figure>
+          <div class="paper-description">
+            <div class="pub-meta"><span class="publication-venue">Drones</span><time datetime="2023">2023</time></div>
+            <h3><a href="https://doi.org/10.3390/drones7040255">Transition Nonlinear Blended Aerodynamic Modeling and Anti-Harmonic Disturbance Robust Control of Fixed-Wing Tiltrotor UAV</a></h3>
+            <p class="paper-evidence" data-zh="建立转换段非线性气动模型，将谐波扰动观测器与超螺旋滑模控制器接入纵向闭环。">Models nonlinear transition aerodynamics and integrates a harmonic disturbance observer with a super-twisting sliding mode controller in the longitudinal feedback loop.</p>
+            <p class="authors"><strong>Jingxian Liao</strong>, Hyochoong Bang</p>
+            <div class="paper-citation"><p class="venue">Drones, 7(4), 255</p><a class="paper-link" href="https://doi.org/10.3390/drones7040255" data-zh="DOI">DOI</a> <a class="paper-link" href="https://www.mdpi.com/2504-446X/7/4/255" data-zh="开放全文">Open full text</a></div>
+          </div>
+        </li>
+        <li class="paper" data-topics="design" id="paper-cad">
+          <figure class="paper-figure">
+            <button class="publication-preview" type="button" aria-haspopup="dialog">
+              <span class="figure-frame paper-frame"><img src="assets/paper-cad.webp" width="988" height="1000" loading="lazy" alt="CADLLM framework for generating parametric CAD models from text descriptions" data-alt-zh="CADLLM 从文本描述生成参数化模型的技术框架。"></span>
+              <span class="visually-hidden" data-zh="放大论文图">Expand paper figure</span>
+            </button>
+          </figure>
+          <div class="paper-description">
+            <div class="pub-meta"><span class="publication-venue">ACL</span><time datetime="2025">2025</time></div>
+            <h3><a href="https://aclanthology.org/2025.acl-long.1054/">Automated CAD Modeling Sequence Generation from Text Descriptions via Transformer-Based Large Language Models</a></h3>
+            <p class="paper-evidence" data-zh="提出 CADLLM，从文本描述生成可执行的参数化 CAD 建模序列。">Presents CADLLM for generating parametric CAD modeling sequences from text descriptions.</p>
+            <p class="authors">Jianxing Liao, Junyan Xu, Yatao Sun, Maowen Tang, Sicheng He, <strong>Jingxian Liao</strong>, Shui Yu, Yun Li, Xiaohong Guan</p>
+            <div class="paper-citation"><p class="venue">Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics, 21720–21748</p><a class="paper-link" href="https://aclanthology.org/2025.acl-long.1054/" data-zh="论文">Publisher</a> <a class="paper-link" href="https://jianxliao.github.io/cadllm-page/" data-zh="项目主页">Project</a></div>
+          </div>
+        </li>
+      </ol>
+      <section class="publication-archive" id="all-publications" aria-labelledby="all-publications-title">
+        <h2 id="all-publications-title" data-zh="完整论文列表">Full publication list</h2>
+        <div class="publication-archive-grid">
+          <div>
+            <h3 data-zh="期刊论文">Journal articles</h3>
+            <ol class="publication-archive-list">
+              <li>
+                <a class="publication-record-title" href="https://doi.org/10.1016/j.engappai.2026.116648">Aerodynamics-encoded Kolmogorov–Arnold networks for lift-coefficient modelling across a convertible aircraft transition envelope</a>
+                <p class="authors"><strong>Jingxian Liao</strong>, Yun Li</p>
+                <p class="venue"><cite>Engineering Applications of Artificial Intelligence</cite>, 186, 116648, 2026.</p>
+              </li>
+              <li>
+                <a class="publication-record-title" href="https://doi.org/10.1016/j.engappai.2026.114453">Kolmogorov–Arnold network-based adaptive control allocation for overactuated systems with Lyapunov-stable learning</a>
+                <p class="authors"><strong>Jingxian Liao</strong>, Chenkai Cao, Yun Li</p>
+                <p class="venue"><cite>Engineering Applications of Artificial Intelligence</cite>, 173, 114453, 2026.</p>
+              </li>
+              <li>
+                <a class="publication-record-title" href="https://doi.org/10.3390/drones7040255">Transition nonlinear blended aerodynamic modeling and anti-harmonic disturbance robust control of fixed-wing tiltrotor UAV</a>
+                <p class="authors"><strong>Jingxian Liao</strong>, Hyochoong Bang</p>
+                <p class="venue"><cite>Drones</cite>, 7(4), 255, 2023.</p>
+              </li>
+              <li>
+                <a class="publication-record-title" href="https://doi.org/10.1177/0954406220971330">Mathematical modelling and model predictive controller design of a quad tiltrotor UAV</a>
+                <p class="authors"><strong>Jingxian Liao</strong>, Xiaodong Song</p>
+                <p class="venue"><cite>Proceedings of the Institution of Mechanical Engineers, Part C: Journal of Mechanical Engineering Science</cite>, <span data-zh="2020 年在线发表">First published online in 2020</span>.</p>
+              </li>
+            </ol>
+          </div>
+          <div>
+            <h3 data-zh="会议论文">Conference papers</h3>
+            <ol class="publication-archive-list">
+              <li>
+                <a class="publication-record-title" href="https://doi.org/10.18653/v1/2025.acl-long.1054">Automated CAD Modeling Sequence Generation from Text Descriptions via Transformer-Based Large Language Models</a>
+                <p class="authors">Jianxing Liao, Junyan Xu, Yatao Sun, Maowen Tang, Sicheng He, <strong>Jingxian Liao</strong>, Shui Yu, Yun Li, Xiaohong Guan</p>
+                <p class="venue"><cite>Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)</cite>, 21720–21748, 2025.</p>
+              </li>
+              <li>
+                <a class="publication-record-title" href="https://doi.org/10.23919/ASCC56756.2022.9828101">Precise missile autopilot design using nonlinear sliding mode control</a>
+                <p class="authors"><strong>Jingxian Liao</strong>, Hyochoong Bang</p>
+                <p class="venue"><cite>13th Asian Control Conference (ASCC)</cite>, 2022.</p>
+              </li>
+              <li>
+                <a class="publication-record-title" href="https://doi.org/10.1007/978-981-19-2635-8_30">Augmented Lagrange based particle swarm optimization for missile interception guidance</a>
+                <p class="authors"><strong>Jingxian Liao</strong>, Hyochoong Bang</p>
+                <p class="venue"><cite>Proceedings of the 2021 Asia-Pacific International Symposium on Aerospace Technology (APISAT 2021)</cite>, Vol. 2, Springer, 2022.</p>
+              </li>
+              <li>
+                <a class="publication-record-title" href="https://doi.org/10.23919/ICCAS52745.2021.9650024">Parameter tuning of linear active disturbance rejection controller for altitude based on particle swarm optimization</a>
+                <p class="authors"><strong>Jingxian Liao</strong>, Hyochoong Bang</p>
+                <p class="venue"><cite>21st International Conference on Control, Automation and Systems (ICCAS)</cite>, 2021.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <section class="patents-section" id="patents" aria-labelledby="patents-title">
+        <div class="section-heading">
+          <h2 id="patents-title" data-zh="专利">Patents</h2>
+        </div>
+        <div class="patent-group">
+          <h3 data-zh="已授权专利">Granted patent</h3>
+      <article class="patent">
+        <div class="patent-info"><p class="patent-status" data-zh="中国 · 2025 年授权">China · Granted 2025</p><strong class="patent-number">ZL202510296558.7</strong></div>
+        <div><h4 data-zh="基于迎角动态的倾转旋翼机过渡态串接链控制分配方法">Angle-of-attack-dynamics-based daisy-chain control allocation for tiltrotor aircraft during transition</h4>
+        <p class="inventors" data-zh="发明人：廖静娴、李耘、曹宸恺">Inventors: Jingxian Liao, Yun Li, and Chenkai Cao</p><a class="text-link" href="https://patents.google.com/patent/CN119806193B/zh" data-zh="查看授权专利 CN119806193B">Patent record CN119806193B</a></div>
+      </article>
+        </div>
+        <div class="patent-group">
+          <h3 data-zh="专利申请">Patent applications</h3>
+      <article class="patent">
+        <div class="patent-info"><p class="patent-status" data-zh="中国 · 已申请，待授权">China · Patent application pending</p><strong class="patent-number">202611036737.8</strong></div>
+        <div><h4 data-zh="飞行器气动系数预测模型训练方法、飞行器气动系数预测方法">Training a model for aircraft aerodynamic coefficient prediction and predicting aircraft aerodynamic coefficients</h4>
+        <p class="inventors" data-zh="发明人：廖静娴、李耘 · 申请日：2026 年 7 月 13 日">Inventors: Jingxian Liao and Yun Li · Filed 13 July 2026</p></div>
+      </article>
+      <article class="patent">
+        <div class="patent-info"><p class="patent-status" data-zh="中国 · 已申请，待授权">China · Patent application pending</p><strong class="patent-number">202611445457.2</strong></div>
+        <div><h4 data-zh="基于预算化边函数选择 KAN 模型的训练方法、机械臂末端位置预测方法及机械臂">Training a KAN with budgeted edge-function selection, a method for predicting end-effector position, and a robot manipulator</h4>
+        <p class="inventors" data-zh="发明人：廖静娴、李耘 · 申请日：2026 年 9 月 17 日">Inventors: Jingxian Liao and Yun Li · Filed 17 September 2026</p></div>
+      </article>
+        </div>
+      </section>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-layout"><p data-zh="© 2026 廖静娴">© 2026 Jingxian Liao</p><a href="#top" data-zh="返回顶部">Back to top</a></div>
+  </footer>
+  <dialog class="figure-dialog" aria-labelledby="figure-title">
+    <div class="dialog-header"><h2 id="figure-title"></h2><button class="close-dialog" type="button" aria-label="Close figure" data-label-zh="关闭图片" data-zh="关闭">Close</button></div>
+    <div class="dialog-content"></div>
+  </dialog>
+</body>
+</html>

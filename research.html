@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jingxian Liao (廖静娴), postdoctoral researcher at UESTC. Physics-embedded machine learning and adaptive control for convertible aircraft and embodied systems.">
+  <meta name="theme-color" content="#fcf7e9">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Research · Jingxian Liao">
+  <meta property="og:description" content="Physics-embedded machine learning and adaptive control for convertible aircraft.">
+  <meta property="og:image" content="https://jingxianliao.github.io/assets/jingxian-liao-portrait.webp">
+  <meta property="og:url" content="https://jingxianliao.github.io/research.html">
+  <title>Research · Jingxian Liao</title>
+  <link rel="canonical" href="https://jingxianliao.github.io/research.html">
+  <link rel="stylesheet" href="academic.css?v=pages-20261126">
+  <script src="academic.js?v=pages-20261126" defer></script>
+</head>
+<body id="top" data-page="research" data-title-zh="研究 · 廖静娴">
+  <a class="skip" href="#main" data-zh="跳到正文">Skip to content</a>
+  <header class="site-header">
+    <div class="shell nav-layout">
+      <a class="wordmark" href="index.html"><span class="monogram" aria-hidden="true">JL</span><span data-zh="廖静娴">Jingxian Liao</span></a>
+      <nav class="nav-links" aria-label="Sections" data-label-zh="页面栏目">
+        <a href="index.html" data-zh="关于我">About</a>
+        <a href="research.html" aria-current="page" data-zh="研究">Research</a>
+        <a href="publications.html" data-zh="论文">Publications</a>
+        <a href="projects.html" data-zh="项目">Projects</a>
+        <a href="cv.html" data-zh="简历">CV</a>
+        <a href="teaching.html" data-zh="教学">Teaching</a>
+        <a href="contact.html" data-zh="联系">Contact</a>
+      </nav>
+      <div class="language" role="group" aria-label="Language / 语言" hidden>
+        <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" data-lang="zh" aria-pressed="false" lang="zh-CN">中文</button>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section class="shell section" id="research" aria-labelledby="research-title">
+      <div class="section-heading page-heading">
+        <h1 id="research-title" data-zh="研究">Research</h1>
+        <p data-zh="可转换构型飞行器在悬停与前飞之间转换时，气动特性与执行器效能都会变化。我的研究分别从气动预测与自适应控制分配入手。">Aerodynamics and actuator effectiveness change as convertible aircraft transition between hover and forward flight. I address these challenges through aerodynamic prediction and adaptive control allocation.</p>
+      </div>
+      <div class="research-grid" id="algorithms">
+        <article class="research-card" id="aerokan">
+          <div class="research-card-heading"><h3>AeroKAN</h3><span data-zh="气动建模">Aerodynamic modeling</span></div>
+          <p data-zh="在 Kolmogorov–Arnold 网络的边函数中嵌入解析升力先验，用可学习残差捕捉非线性气动变化。">A Kolmogorov–Arnold network whose edge functions combine an analytical lift prior with a learned residual to capture nonlinear aerodynamics.</p>
+          <dl class="research-metrics">
+            <div>
+              <dt data-zh="对称翼型">Symmetric airfoils</dt><dd data-zh="误差降低 24.8%">24.8% lower MAE</dd>
+              <dd class="metric-context" data-zh="物理先验适用的 57 个工况中，平均绝对误差为 0.0246，基线为无先验 KAN。">MAE of 0.0246 across 57 configurations where the prior applies, compared with a no-prior KAN.</dd>
+            </div>
+            <div>
+              <dt data-zh="有弯度翼型">Cambered airfoils</dt><dd data-zh="误差降低 20.8%">20.8% lower MAE</dd>
+              <dd class="metric-context" data-zh="11 种翼型的 23 个工况中，边函数结构编码的组均值 MAE 为 0.0566，损失惩罚编码为 0.0715。">Across 23 configurations from 11 airfoils, mean MAE was 0.0566 with edge encoding and 0.0715 with loss-penalty encoding.</dd>
+            </div>
+          </dl>
+          <a class="text-link research-link" href="publications.html#paper-aero" data-zh="查看论文与边函数图">Paper and edge-function figure</a>
+        </article>
+        <article class="research-card" id="allockan">
+          <div class="research-card-heading"><h3>allocKAN</h3><span data-zh="自适应控制">Adaptive control</span></div>
+          <p data-zh="随执行器效能变化在线调整控制分配，并通过复合李雅普诺夫分析给出闭环一致最终有界的条件。">Adapts control allocation online as actuator effectiveness changes. A composite Lyapunov analysis establishes conditions for uniformly ultimately bounded closed-loop behavior.</p>
+          <dl class="research-metrics">
+            <div>
+              <dt data-zh="与 allocMLP 对照">Compared with allocMLP</dt><dd data-zh="37.9 秒 vs 75.7 秒">37.9 s vs 75.7 s</dd>
+              <dd class="metric-context" data-zh="六组突发故障闭环仿真的平均恢复时间。参数规模相近的离线对照中，验证均方误差平均降低 75.2%。">Mean recovery time across six abrupt-fault simulations. Validation MSE was 75.2% lower on average in matched-budget offline comparisons.</dd>
+            </div>
+            <div>
+              <dt data-zh="与传统分配器对照">Compared with conventional allocators</dt><dd class="metric-subtitle" data-zh="保持闭环状态有界">Bounded closed-loop states</dd>
+              <dd class="metric-context" data-zh="双执行器效能反向及叠加风扰与惯量不确定性的两类仿真中，五种传统分配器均发散。">All five conventional allocators diverged under dual actuator reversal, both on its own and with wind disturbance and inertia uncertainty.</dd>
+            </div>
+          </dl>
+          <a class="text-link research-link" href="publications.html#paper-alloc" data-zh="查看论文与闭环架构图">Paper and closed-loop architecture</a>
+        </article>
+      </div>
+      <aside class="ongoing">
+        <h3 data-zh="正在推进的研究">Current research</h3>
+        <div class="ongoing-grid">
+          <div><h4 data-zh="可转换构型飞行器">Convertible aircraft</h4><p data-zh="面向倾转旋翼飞行器，研究融合物理机理和数据的过渡段灰箱动力学模型。飞行验证纳入在研项目计划。">I study gray-box transition dynamics for tiltrotor aircraft by combining physical models with data. Flight validation is planned as part of the ongoing project.</p></div>
+          <div><h4 data-zh="具身智能">Embodied intelligence</h4><p data-zh="从模型预算约束下的 KAN 边函数选择与机械臂末端位置预测出发，探索紧凑模型在机器人动力学建模与控制中的应用。">I explore compact models for robot dynamics and control, starting with budgeted KAN edge-function selection and manipulator end-effector position prediction.</p></div>
+        </div>
+      </aside>
+      <div class="page-links research-more">
+        <a class="text-link" href="projects.html" data-zh="主持与参与项目">Funded projects</a>
+        <a class="text-link" href="publications.html#patents" data-zh="相关专利">Related patents</a>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="shell footer-layout"><p data-zh="© 2026 廖静娴">© 2026 Jingxian Liao</p><a href="#top" data-zh="返回顶部">Back to top</a></div>
+  </footer>
+</body>
+</html>
