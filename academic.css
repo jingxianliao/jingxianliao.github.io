@@ -385,3 +385,93 @@ html[lang="zh-CN"] .page-heading h1 { letter-spacing: 0; }
   html { scroll-padding-top: 8.5rem; }
   .publication-lead { align-items: flex-start; flex-direction: column; }
 }
+
+/* About biography, research evidence, and highlights */
+.about .hero {
+  grid-template-columns: minmax(230px, .82fr) minmax(0, 1.48fr);
+  gap: clamp(2rem, 6.5vw, 5.15rem);
+}
+.about .hero-portrait { justify-self: start; max-width: 345px; aspect-ratio: 4/5; }
+.about .hero-research { font-size: clamp(1.34rem, 2.55vw, 2rem); }
+.about .hero-description { max-width: 43rem; }
+.about .hero-description + .hero-description { margin-top: .78rem; }
+.about .hero-actions { gap: .48rem .65rem; }
+.about-work-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.about-work-grid .about-work { align-content: start; gap: .5rem; }
+.about-work-grid .about-work:nth-child(n+3) { border-left-color: #8d7956; }
+.about-work-grid .about-work .work-label {
+  justify-self: start;
+  padding: .17rem .46rem;
+  border-radius: 4px;
+  background: var(--wash);
+  color: var(--link);
+  font-size: .81rem;
+  font-weight: 680;
+}
+.about-work-grid .about-work h3 { font-size: clamp(1.08rem, 1.65vw, 1.24rem); }
+.about-work-grid .about-work:hover h3 { text-decoration: underline; }
+.about-validation, .about-updates { padding-block: clamp(1.8rem, 3.8vw, 3.15rem); }
+.about-validation .section-heading h2,
+.about-updates .section-heading h2,
+.reviewing-section .section-heading h2,
+.visitor-section .section-heading h2 { font-size: clamp(1.72rem, 3.5vw, 2.48rem); }
+.validation-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr);
+  gap: clamp(1rem, 3.6vw, 2.5rem);
+  align-items: start;
+}
+.validation-list { display: grid; gap: .78rem; }
+.validation-list div + div { border-top: 1px solid var(--line); padding-top: .67rem; }
+.validation-list dt { color: var(--link); font-weight: 720; }
+.validation-list dd { color: var(--body); margin-top: .12rem; }
+.validation-figure a {
+  display: block;
+  padding: .58rem;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: white;
+}
+.validation-figure a:hover { border-color: var(--green); }
+.validation-figure img { display: block; width: 100%; height: auto; }
+.validation-figure figcaption { color: var(--muted); font-size: .88rem; margin-top: .42rem; }
+.highlight-list { padding: 0; margin: 0; list-style: none; }
+.highlight-list li {
+  display: grid;
+  grid-template-columns: minmax(5.5rem, .16fr) minmax(0, 1fr);
+  gap: .4rem 1.2rem;
+  padding: .67rem 0;
+  border-top: 1px solid var(--line);
+}
+.highlight-list time { color: var(--muted); font-size: .9rem; font-weight: 680; }
+.highlight-list p { color: var(--body); }
+.highlight-list .text-link { font-size: inherit; }
+
+.reviewing-section, .visitor-section { margin-top: clamp(1.65rem, 4vw, 3rem); }
+.reviewing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
+.reviewing-card {
+  padding: 1.03rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.reviewing-card h3 { color: var(--link); font-size: 1.08rem; }
+.reviewing-card ul { margin: .54rem 0 0; padding-inline-start: 1.08rem; color: var(--body); }
+.reviewing-card li + li { margin-top: .34rem; }
+.reviewing-link { display: inline-block; margin-top: .73rem; }
+.cv-notes-single { grid-template-columns: 1fr; }
+.cv-service-link { margin-top: .7rem; }
+
+@media (max-width: 830px) {
+  .about .hero { grid-template-columns: minmax(170px, .78fr) minmax(0, 1.45fr); gap: 1.65rem; }
+  .about-work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+  .about .hero, .validation-grid, .reviewing-grid { grid-template-columns: 1fr; }
+  .about .hero-copy { grid-row: 1; }
+  .about .hero-portrait { max-width: 240px; }
+  .highlight-list li { grid-template-columns: 1fr; gap: .14rem; }
+}
+@media (max-width: 500px) {
+  .about-work-grid { grid-template-columns: 1fr; }
+}
