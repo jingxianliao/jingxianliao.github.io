@@ -413,6 +413,7 @@ html[lang="zh-CN"] .page-heading h1 { letter-spacing: 0; }
 .about-validation, .about-updates { padding-block: clamp(1.8rem, 3.8vw, 3.15rem); }
 .about-validation .section-heading h2,
 .about-updates .section-heading h2,
+.mentoring-section .section-heading h2,
 .reviewing-section .section-heading h2,
 .visitor-section .section-heading h2 { font-size: clamp(1.72rem, 3.5vw, 2.48rem); }
 .validation-list { display: grid; gap: .78rem; }
@@ -430,17 +431,20 @@ html[lang="zh-CN"] .page-heading h1 { letter-spacing: 0; }
 .highlight-list p { color: var(--body); }
 .highlight-list .text-link { font-size: inherit; }
 
-.reviewing-section, .visitor-section { margin-top: clamp(1.65rem, 4vw, 3rem); }
-.reviewing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
-.reviewing-card {
+.mentoring-section, .reviewing-section, .visitor-section { margin-top: clamp(1.65rem, 4vw, 3rem); }
+.mentoring-grid, .reviewing-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; }
+.mentoring-card, .reviewing-card {
   padding: 1.03rem 1.2rem;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
 }
-.reviewing-card h3 { color: var(--link); font-size: 1.08rem; }
-.reviewing-card ul { margin: .54rem 0 0; padding-inline-start: 1.08rem; color: var(--body); }
-.reviewing-card li + li { margin-top: .34rem; }
+.mentoring-card h3, .reviewing-card h3 { color: var(--link); font-size: 1.08rem; }
+.mentoring-card ul, .reviewing-card ul { margin: .54rem 0 0; padding-inline-start: 1.08rem; color: var(--body); }
+.mentoring-card li + li, .reviewing-card li + li { margin-top: .34rem; }
+.mentoring-header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .25rem .75rem; }
+.mentoring-year { color: var(--muted); font-size: .9rem; }
+.mentoring-thesis { margin-top: .55rem; font-weight: 620; }
 .reviewing-link { display: inline-block; margin-top: .73rem; }
 .cv-notes-single { grid-template-columns: 1fr; }
 .cv-service-link { margin-top: .7rem; }
@@ -450,7 +454,7 @@ html[lang="zh-CN"] .page-heading h1 { letter-spacing: 0; }
   .about-work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 620px) {
-  .about .hero, .reviewing-grid { grid-template-columns: 1fr; }
+  .about .hero, .mentoring-grid, .reviewing-grid { grid-template-columns: 1fr; }
   .about .hero-copy { grid-row: 1; }
   .about .hero-portrait { max-width: 240px; }
   .highlight-list li { grid-template-columns: 1fr; gap: .14rem; }
